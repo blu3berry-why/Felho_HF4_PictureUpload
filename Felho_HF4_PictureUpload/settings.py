@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = [os.environ['SECRET_KEY']] if 'SECRET_KEY' in os.environ else 'django-insecure-5=)v&!h7fi!d$s4@hkli$txscf@n+n=029mt!kn$_!2a%r$0mg'
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
