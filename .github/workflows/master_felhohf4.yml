@@ -21,27 +21,27 @@ jobs:
         uses: actions/setup-python@v1
         with:
           python-version: '3.9'
+          cache: 'pip'
 
       - name: Create and start virtual environment
         run: |
-          python -m venv venv
-          source venv/bin/activate
+          python -m venv --copies antenv
+          source antenv/bin/activate
       
       - name: Install dependencies
-        run: pip install -r requirements.txt
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
         
       # Optional: Add step to run tests here (PyTest, Django test suites, etc.)
-
-      - name: Zip artifact for deployment
-        run: zip release.zip ./* -r
 
       - name: Upload artifact for deployment jobs
         uses: actions/upload-artifact@v3
         with:
           name: python-app
           path: |
-            release.zip
-            !venv/
+            . 
+            !antenv/
 
   deploy:
     runs-on: ubuntu-latest
@@ -57,9 +57,6 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: python-app
-
-      - name: Unzip artifact for deployment
-        run: unzip release.zip
 
       
       - name: Login to Azure
