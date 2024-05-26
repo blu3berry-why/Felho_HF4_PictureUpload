@@ -28,6 +28,12 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
+CSRF_TRUSTED_ORIGINS = [
+    'https://felhohf4-container.azurewebsites.net'
+]
+
+import mimetypes
+mimetypes.add_type("text/css", ".css", True)
 
 # Application definition
 
