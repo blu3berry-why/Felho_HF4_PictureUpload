@@ -35,6 +35,27 @@ CSRF_TRUSTED_ORIGINS = [
 import mimetypes
 mimetypes.add_type("text/css", ".css", True)
 
+AZURE_CONTAINER= [os.environ['AZURE_CONTAINER']]
+AZURE_ACCOUNT_NAME=[os.environ['AZURE_ACCOUNT_NAME']]
+AZURE_ACCOUNT_KEY=[os.environ['AZURE_ACCOUNT_KEY']]
+
+
+DEFAULT_FILE_STORAGE = 'storages.backends.azure_storage.AzureStorage'
+STATICFILES_STORAGE = 'storages.backends.azure_storage.AzureStorage'
+
+
+AZURE_CUSTOM_DOMAIN = f'{AZURE_ACCOUNT_NAME}.blob.core.windows.net'
+
+STATIC_LOCATION = 'static'
+MEDIA_LOCATION = 'media'
+
+STATIC_URL = f'https://{AZURE_CUSTOM_DOMAIN}/{STATIC_LOCATION}/'
+MEDIA_URL = f'https://{AZURE_CUSTOM_DOMAIN}/{MEDIA_LOCATION}/'
+
+STATICFILES_DIRS = [
+    BASE_DIR / 'static'
+]
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -46,6 +67,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'posts',
     'users',
+    'storages',
 ]
 
 MIDDLEWARE = [
@@ -145,14 +167,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = 'static/'
-MEDIA_URL = 'media/'
-STATIC_ROOT = BASE_DIR / 'assets'
-MEDIA_ROOT = BASE_DIR / 'media'
 
-STATICFILES_DIRS = [
-    BASE_DIR / 'static'
-]
+
 
 
 # Default primary key field type
