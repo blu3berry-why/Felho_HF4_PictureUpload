@@ -3,6 +3,7 @@ from .models import Post
 from django.contrib.auth.decorators import login_required
 from . import forms
 
+
 # Create your views here.
 def posts_lists(request):
     posts = Post.objects.all().order_by('-date')
@@ -11,7 +12,14 @@ def posts_lists(request):
 
 def post_page(request, slug):
     post = Post.objects.get(slug=slug)
-    return render(request, 'posts/post_page.html', {'post': post})
+    return render(request, 'posts/post_page.html', {'post': post, 'user': request.user})
+
+
+def delete_page(request, slug):
+    if request.method == 'POST':
+        post = Post.objects.get(slug=slug)
+        post.delete()
+    return redirect('posts:list')
 
 
 @login_required(login_url='/users/login/')

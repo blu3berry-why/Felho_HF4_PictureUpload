@@ -15,6 +15,13 @@
         <h1> {{ post.title }}</h1>
         <p>{{ post.date }}</p>
         <p>{{ post.body }}</p>
+    {% if post.author == user %}
+        <form action="delete/{{ post.slug }}" method="post">
+            {% csrf_token %}
+            <button>Delete</button>
+        </form>
+
+    {% endif %}
     </section>
 
 {% endblock %}
