@@ -2,6 +2,9 @@
 
 This Django application facilitates picture uploads, storage, and viewing. Users can upload pictures, view uploaded pictures, and delete pictures. Pictures are processed and stored in Azure Blob Storage.
 
+## Website:
+Access the deployed website at [https://felhohf4-container.azurewebsites.net/](https://felhohf4-container.azurewebsites.net/).
+
 ## Table of Contents
 
 - Overview
