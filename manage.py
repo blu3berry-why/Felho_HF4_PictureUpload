@@ -23,7 +23,7 @@ def main():
      # If WEBSITE_HOSTNAME is defined as an environment variable, then we're running on Azure App Service
 
      # When running on Azure App Service you should use the production settings.
-     settings_module = "Felho_HF4_PictureUpload.settings" if 'WEBSITE_HOSTNAME' in os.environ else 'Felho_HF4_PictureUpload.settings'
+     settings_module = "Felho_HF4_PictureUpload.production" if 'WEBSITE_HOSTNAME' in os.environ else 'Felho_HF4_PictureUpload.settings'
      os.environ.setdefault('DJANGO_SETTINGS_MODULE', settings_module)
 
      try:
