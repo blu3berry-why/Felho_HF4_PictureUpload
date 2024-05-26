@@ -12,7 +12,8 @@ def posts_lists(request):
 
 def post_page(request, slug):
     post = Post.objects.get(slug=slug)
-    return render(request, 'posts/post_page.html', {'post': post, 'user': request.user})
+    url = str(post.banner.url).replace('images/', "images/bordered-")
+    return render(request, 'posts/post_page.html', {'post': post, 'user': request.user, 'url': url})
 
 
 def delete_page(request, slug):
