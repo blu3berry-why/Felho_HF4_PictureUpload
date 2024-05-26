@@ -34,3 +34,13 @@ def post_new(request):
     else:
         form = forms.CreatePost()
     return render(request, 'posts/post_new.html', {'form': form})
+
+
+def posts_sort_name(request):
+    posts = Post.objects.all().order_by('-title')
+    return render(request, 'posts/posts_list.html', {'posts': posts})
+
+
+def posts_sort_date(request):
+    posts = Post.objects.all().order_by('-date')
+    return render(request, 'posts/posts_list.html', {'posts': posts})

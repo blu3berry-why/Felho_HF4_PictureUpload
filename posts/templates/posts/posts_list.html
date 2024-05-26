@@ -8,6 +8,14 @@
     <section>
         <h1>Posts</h1>
 
+        <form action="{% url 'posts:sort_date' %}">
+            <button>Sort by Date</button>
+        </form>
+
+    <form action="{% url 'posts:sort_name' %}">
+            <button>Sort by Name</button>
+        </form>
+
         {% for post in posts %}
             <article class="post">
                 <h2>
