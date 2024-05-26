@@ -35,9 +35,12 @@ CSRF_TRUSTED_ORIGINS = [
 import mimetypes
 mimetypes.add_type("text/css", ".css", True)
 
+
+
 AZURE_CONTAINER= [os.environ['AZURE_CONTAINER']]
 AZURE_ACCOUNT_NAME=[os.environ['AZURE_ACCOUNT_NAME']]
 AZURE_ACCOUNT_KEY=[os.environ['AZURE_ACCOUNT_KEY']]
+
 
 
 DEFAULT_FILE_STORAGE = 'storages.backends.azure_storage.AzureStorage'
