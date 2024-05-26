@@ -8,13 +8,17 @@
     <section>
         <h1>Posts</h1>
 
-        <form action="{% url 'posts:sort_date' %}">
-            <button>Sort by Date</button>
+    <div style="display: flex; flex-direction: row; justify-content: left">
+         <form action="{% url 'posts:sort_date' %}" >
+            <button class="button-19">Sort by Date</button>
         </form>
 
+
     <form action="{% url 'posts:sort_name' %}">
-            <button>Sort by Name</button>
+            <button class="button-19">Sort by Name</button>
         </form>
+    </div>
+
 
         {% for post in posts %}
             <article class="post">

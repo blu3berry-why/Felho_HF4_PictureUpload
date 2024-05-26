@@ -16,9 +16,9 @@
         <p>{{ post.date }}</p>
         <p>{{ post.body }}</p>
     {% if post.author == user %}
-        <form action="delete/{{ post.slug }}" method="post">
+        <form action="delete/{{ post.slug }}" method="post" >
             {% csrf_token %}
-            <button>Delete</button>
+            <button class="button-19" style="width: 10rem">Delete</button>
         </form>
 
     {% endif %}
