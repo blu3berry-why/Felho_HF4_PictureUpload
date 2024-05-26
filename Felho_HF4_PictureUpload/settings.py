@@ -36,9 +36,9 @@ import mimetypes
 
 mimetypes.add_type("text/css", ".css", True)
 
-AZURE_CONTAINER = [os.environ['AZURE_CONTAINER']]
-AZURE_ACCOUNT_NAME = [os.environ['AZURE_ACCOUNT_NAME']]
-AZURE_ACCOUNT_KEY = [os.environ['AZURE_ACCOUNT_KEY']]
+AZURE_CONTAINER = os.environ.get('AZURE_CONTAINER')
+AZURE_ACCOUNT_NAME = os.environ.get('AZURE_ACCOUNT_NAME')
+AZURE_ACCOUNT_KEY = os.environ.get('AZURE_ACCOUNT_KEY')
 
 DEFAULT_FILE_STORAGE = 'storages.backends.azure_storage.AzureStorage'
 STATICFILES_STORAGE = 'storages.backends.azure_storage.AzureStorage'
