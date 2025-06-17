@@ -102,8 +102,3 @@ The project uses the following dependencies:
 
 - Django: Web framework for building web applications in Python.
 - django-storages: Django library for working with various storage backends, including Azure Blob Storage.
-
----
-
-
-This README should give a comprehensive overview of the Django app, its setup, features, and usage instructions. Adjustments can be made according to your project's specific details and requirements!
